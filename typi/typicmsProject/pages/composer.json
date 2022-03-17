@@ -1,0 +1,21 @@
+{
+    "name": "typicms/pages",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samuel De Backer",
+            "email": "sdebacker@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": "~8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TypiCMS\\Modules\\Pages\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

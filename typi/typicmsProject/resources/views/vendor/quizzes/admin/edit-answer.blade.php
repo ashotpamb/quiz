@@ -1,0 +1,17 @@
+@extends('core::admin.master')
+
+@section('title', $model->present()->title)
+
+@section('content')
+    <div class="header">
+        @include('core::admin._button-back', ['module' => 'quizzes'])
+        <h1 class="header-title @if (!$model->present()->title)text-muted @endif">
+            {{ $model->present()->title ?: __('Untitled') }}
+        </h1>
+    </div>
+    {!! BootForm::open()->put()->action(route('admin::update-quiz_question', [$quiz->id, $model->id]))->multipart()->role('form') !!}
+    {!! BootForm::bind($model) !!}
+        @include('quizzes::admin._form-question')
+    {!! BootForm::close() !!}
+
+@endsection
