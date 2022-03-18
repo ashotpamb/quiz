@@ -9,9 +9,9 @@
             {{ $model->present()->title ?: __('Untitled') }}
         </h1>
     </div>
-    {!! BootForm::open()->put()->action(route('admin::update-quiz_question', [$quiz->id, $model->id]))->multipart()->role('form') !!}
+    {!! BootForm::open()->put()->action(route('admin::update-question_answer', [$question->id, $model->id]))->multipart()->role('form') !!}
     {!! BootForm::bind($model) !!}
-        @include('quizzes::admin._form-question')
+        @include('quizzes::admin._form-answer')
     {!! BootForm::close() !!}
 
 @endsection

@@ -46,6 +46,7 @@ class RouteServiceProvider extends ServiceProvider
 
             //question routes
             $router->get('quizzes/{quiz}/questions/create', [AdminQuestionController::class, 'create'])->name('create-quiz_question');//->middleware('can:create page_sections');
+//            $router->get('quizzes/{quiz}/questions/create', [AdminQuestionController::class, 'create'])->name('index-question');//->middleware('can:create page_sections');
             $router->get('quizzes/{quiz}/question/{question}/edit', [AdminQuestionController::class, 'edit'])->name('edit-question');//->middleware('can:read page_sections');
             $router->post('quizzes/{quiz}/question/create', [AdminQuestionController::class, 'store'])->name('store-quiz_question');//->middleware('can:create page_sections');
             $router->put('quizzes/{quiz}/questions/{question}', [AdminQuestionController::class, 'update'])->name('update-quiz_question');//->middleware('can:update page_sections');
@@ -56,9 +57,9 @@ class RouteServiceProvider extends ServiceProvider
 
             //answer routes
             $router->get('question/{question}/answer/create', [AdminAnswerController::class, 'create'])->name('create-question_answers');//->middleware('can:create page_sections');
-//            $router->get('quizzes/{quiz}/question/{question}/edit', [AdminQuestionController::class, 'edit'])->name('edit-question');//->middleware('can:read page_sections');
-            $router->post('quizzes/{quiz}/question/create', [AdminAnswerController::class, 'store'])->name('store-question_answer');//->middleware('can:create page_sections');
-//            $router->put('quizzes/{quiz}/questions/{question}', [AdminQuestionController::class, 'update'])->name('update-quiz_question');//->middleware('can:update page_sections');
+            $router->get('quizzes/{quizzes}/question/{question}/answer/{answer}/edit', [AdminAnswerController::class, 'edit'])->name('edit-question_answers');//->middleware('can:read page_sections');
+            $router->post('question/{question}/answer/create', [AdminAnswerController::class, 'store'])->name('store-question_answer');//->middleware('can:create page_sections');
+            $router->put('question/{question}/answer/{answer}', [AdminAnswerController::class, 'update'])->name('update-question_answer');//->middleware('can:update page_sections');
 //            $router->post('pages/{page}/sections/sort', [SectionsAdminController::class, 'sort'])->name('sort-page_sections');
 
 //            $router->get('sections', [SectionsAdminController::class, 'index'])->name('index-page_sections')->middleware('can:read page_sections');

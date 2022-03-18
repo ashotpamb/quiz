@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Quizzes\Exports\Export;
+use TypiCMS\Modules\Quizzes\Http\Requests\AnswerFormRequest;
 use TypiCMS\Modules\Quizzes\Http\Requests\FormRequest;
 use TypiCMS\Modules\Quizzes\Http\Requests\QuestionFormRequest;
 use TypiCMS\Modules\Quizzes\Models\Answer;
@@ -25,18 +26,18 @@ class AdminAnswerController extends BaseAdminController
             ->with(compact('model', 'question'));
     }
 
-    public function edit(Quiz $quiz, Question $question): View
+    public function edit(Quiz $quizzes,Question $question, Answer $answer): View
     {
-        return view('quizzes::admin.edit-question')
+        return view('quizzes::admin.edit-answer')
             ->with([
-                'model' => $question,
-                'quiz' => $quiz,
+                'model' => $answer,
+                'question' => $question,
             ]);
     }
 
-    public function store(Quiz $quiz, QuestionFormRequest $request): RedirectResponse
+    public function store(Question $question, AnswerFormRequest $request): RedirectResponse
     {
-        $question = Question::create($request->validated());
+        $question = Answer::create($request->validated());
         return $this->redirect($request, $question);
     }
 

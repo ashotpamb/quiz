@@ -20,7 +20,7 @@ class AdminQuestionController extends BaseAdminController
     {
         $model = new Question();
 
-        return view('quizzes::admin.create-answer')
+        return view('quizzes::admin.create-question')
             ->with(compact('model', 'quiz'));
     }
 

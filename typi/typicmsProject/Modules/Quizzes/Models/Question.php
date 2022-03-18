@@ -31,7 +31,7 @@ class Question extends Base
 
     public function answers()
     {
-        return $this->answers()->hasMany(Answer::class);
+        return $this->hasMany(Answer::class,'question_id','id');
     }
     public function getThumbAttribute(): string
     {

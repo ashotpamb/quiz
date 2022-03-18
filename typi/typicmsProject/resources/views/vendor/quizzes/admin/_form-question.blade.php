@@ -25,7 +25,7 @@
         <item-list
             url-base="/api/question/{{ $model->id }}/answer"
             locale="{{ config('typicms.content_locale') }}"
-            fields="id,image_id,question_id,position,status,title"
+            fields="id,image_id,question_id,position,title"
             table="answers"
             title="answers"
             include="image"
